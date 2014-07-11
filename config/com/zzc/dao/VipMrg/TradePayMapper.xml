@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.zzc.dao.VipMrg.TradePayMapper">
+
+	<update id="insertTradePay" parameterType="TradePay">
+		insert into 
+		tf_b_trade_pay(trade_id,modify_tag,old_fee,fee) 
+		values
+		(#{tradeId},#{modifyTag},#{oldFee},#{fee})
+	</update>
+<!--	<select id="testQry" resultType="Trade" parameterType="java.lang.String">-->
+<!--		SELECT a.trade_id,a.subscribe_id,a.trade_type_code FROM tf_b_trade a -->
+<!--		where a.trade_id = #{trade_id}-->
+<!--	</select>-->
+<!--	-->
+<!--	<update id="testUpdate" parameterType="java.lang.String">-->
+<!--		update tf_f_leave a-->
+<!--		set a.user_name = #{name}-->
+<!--		where a.user_id = '10395'-->
+<!--	</update>-->
+<!--	-->
+<!--	<update id="testUpdate2" parameterType="java.lang.String">-->
+<!--		update tf_f_leave a-->
+<!--		set a.user_name = #{name}-->
+<!--		where a.user_id = '10391'-->
+<!--	</update>-->
+<!--	<sql id="userItemColumn">-->
+<!--		<![CDATA[-->
+<!--			a.user_id    userId,-->
+<!--	        a.attr_code  attrCode,-->
+<!--	        a.attr_value attrValue,-->
+<!--	        a.start_date startDate,-->
+<!--	        a.end_date   endDate-->
+<!--		]]>-->
+<!--	</sql>-->
+	
+<!--     这里的id必须和UserMapper接口中的接口方法名相同，不然运行的时候也要报错  -->
+<!--    <select id="getUserItemList" resultType="UserItem" parameterType="java.lang.String"> -->
+<!--        SELECT <include refid="userItemColumn"/> FROM tf_f_user_item a-->
+<!--		where a.user_id = #{userId}-->
+<!--    </select> -->
+    
+<!--    <select id="getUserItemList2" resultMap="UserItemMap" parameterType="java.lang.String">-->
+<!--    	SELECT a.user_id userId,-->
+<!--		       a.open_date devDate,-->
+<!--		       a.eparchy_code eparchyCode,-->
+<!--		       b.user_id userIdItem,-->
+<!--		       b.attr_code attrCode,-->
+<!--		       b.attr_value attrValue,-->
+<!--		       b.start_date startDate,-->
+<!--		       b.end_date endDate-->
+<!--		  FROM tf_f_user a, tf_f_user_item b-->
+<!--		 where a.user_id = b.user_id-->
+<!--		   and a.user_id = #{user_id}-->
+<!--    </select>-->
+    
+<!--    <resultMap type="User" id="userRet">-->
+<!--    	<id property="userId" column="userId"/>-->
+<!--    	<result property="devDate" column="devDate"/>-->
+<!--    	<result property="eparchyCode" column="eparchyCode"/>-->
+<!--    </resultMap>-->
+<!--    -->
+<!--   	<resultMap type="UserItem" id="UserItemMap" extends="bean.userItem">-->
+<!--		<association property="user" resultMap="bean.user"></association>-->
+<!--	</resultMap> -->
+</mapper>

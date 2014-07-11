@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	
+<!--	web-->
+	<bean id="mainPageAction" class="com.zzc.action.mainFrame.MainPageAction" scope="prototype">
+		<property name="mainPageService" ref="mainPageService"></property>
+	</bean>
+	
+	<bean id="loginAction" class="com.zzc.action.mainFrame.LoginAction" scope="prototype">
+	</bean>
+	
+	<bean id="testAction" class="com.zzc.action.test.TestAction" scope="prototype">
+		<property name="testService" ref="testService"></property>
+	</bean>
+	
+<!--	会员管理-->
+	<bean id="createVipAction" class="com.zzc.action.VipMrg.CreateVipAction" scope="prototype">
+	</bean>
+	
+	<bean id="chargeFeeAction" class="com.zzc.action.VipMrg.ChargeFeeAction" scope="prototype">
+		<property name="queryUserInfoService" ref="queryUserInfoService"></property>
+	</bean>
+	
+	<bean id="tradeNumReportAction" class="com.zzc.action.VipMrg.TradeNumReportAction" scope="prototype">
+		<property name="queryTradeInfoService" ref="queryTradeInfoService"></property>
+	</bean>
+	
+</beans>

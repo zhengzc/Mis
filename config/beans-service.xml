@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	
+	<bean id="mainPageService" class="com.zzc.service.mainFrame.impl.MainPageServiceImpl">
+		<property name="manageUserDao" ref="mUserDao"></property>
+	</bean>
+	
+	<bean id="testService" class="com.zzc.service.test.impl.TestServiceImpl">
+		<property name="sqlDao" ref="sqlDao"></property>
+	</bean>
+	
+	<bean id="tradeService" class="com.zzc.service.VipMrg.impl.TradeServiceImpl">
+	</bean>
+	
+<!--	VipMrg-->
+	<bean id="createVipService" class="com.zzc.service.VipMrg.impl.CreateVipServiceImpl">
+	</bean>
+	
+	<bean id="chargeFeeService" class="com.zzc.service.VipMrg.impl.ChargeFeeServiceImpl">
+	</bean>
+	
+	<bean id="queryUserInfoService" class="com.zzc.service.VipMrg.Query.Impl.QueryUserInfoServiceImpl">
+	</bean>
+	
+	<bean id="queryTradeInfoService" class="com.zzc.service.VipMrg.Query.Impl.QueryTradeInfoServiceImpl"></bean>
+<!--	<bean id="phoneService" class="com.zzc.service.forPhoneImpl.PhoneServiceImpl">-->
+<!--		<property name="log" ref="log"></property>-->
+<!--		<property name="sqlDao" ref="sqlDao"></property>-->
+<!--		<property name="userDao" ref="userDao"></property>-->
+<!--		<property name="userParamDao" ref="userParamDao"></property>-->
+<!--	</bean>-->
+	
+<!--	crm-->
+<!--	<bean id="testService" class="com.zzc.service.crmImpl.TestServiceImpl">-->
+<!--		<property name="test" ref="testUserMapper"></property>-->
+<!--		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>-->
+<!--		<property name="test" ref="test"></property>-->
+<!--		<property name="log" ref="log"></property>-->
+<!--		<property name="testService2" ref="testService2"></property>-->
+<!--	</bean>-->
+	
+<!--	<bean id="testService2" class="com.zzc.service.crmImpl.TestService2Impl">-->
+<!--		<property name="log" ref="log"></property>-->
+<!--		<property name="test" ref="test"></property>-->
+<!--	</bean>-->
+	
+<!--	<bean id="fixEbTradeService" class="com.zzc.service.crmImpl.FixEbTradeServiceImpl">-->
+<!--		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>-->
+<!--		<property name="fixEBErrTradeMapper" ref="fixEBErrTradeMapperImpl"></property>-->
+<!--		<property name="fixEbServiceNewTransaction" ref="fixEbServiceNewTransaction"></property>-->
+<!--		<property name="log" ref="log"></property>-->
+<!--	</bean>-->
+	
+<!--	<bean id="fixEbServiceNewTransaction" class="com.zzc.service.crmImpl.FixEbServiceNewTransactionImpl">-->
+<!--		<property name="fixEbTradeService" ref="fixEbTradeService"></property>-->
+<!--		<property name="log" ref="log"></property>-->
+<!--	</bean>-->
+
+<!--	<bean id="cbSynUserInfoService" class="com.zzc.service.crmImpl.CbSynUserInfoSerivceImpl">-->
+<!--		<property name="fixEBErrTradeMapper" ref="fixEBErrTradeMapperImpl"></property>-->
+<!--		<property name="log" ref="log"></property>-->
+<!--	</bean>-->
+	
+<!-- IOM -->
+<!--	<bean id="iomService" class="com.zzc.service.crmImpl.IomServiceImpl">-->
+<!--		<property name="iomMapper" ref="iomDao"/>-->
+<!--	</bean>-->
+</beans>

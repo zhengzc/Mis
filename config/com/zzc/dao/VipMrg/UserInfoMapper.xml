@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.zzc.dao.VipMrg.UserInfoMapper">
+
+	<insert id="insertUserInfo" parameterType="UserInfo">
+		INSERT INTO tf_f_user
+		  (user_id,
+		   muser_id,
+		   card_id,
+		   user_name,
+		   serial_number,
+		   address,
+		   school,
+		   birthday,
+		   current_fee,
+		   sum_fee,
+		   last_cost_date,
+		   card_type,
+		   card_start_date,
+		   card_end_date,
+		   user_type_code,
+		   create_date)
+		VALUES
+		  (#{userId},
+		   #{mUserId},
+		   #{cardId},
+		   #{userName},
+		   #{serialNumber},
+		   #{address},
+		   #{school},
+		   #{birthday},
+		   #{currentFee},
+		   #{sumFee},
+		   #{lastCostDate},
+		   #{cardType},
+		   #{cardStartDate},
+		   #{cardEndDate},
+		   #{userTypeCode},
+		   now())
+	</insert>
+	
+	<update id="updateUserInfo" parameterType="UserInfo">
+		update tf_f_user a
+			<set>
+				<if test="serialNumber != null and serialNumber !=''">
+					a.serial_number = #{serialNumber},
+				</if>
+				<if test="address != null and address != ''">
+					a.address = #{address},
+				</if>
+				<if test="school != null and school != ''">
+					a.school = #{school},
+				</if>
+				<if test="currentFee != null and currentFee != ''">
+					a.current_fee = #{currentFee},
+				</if>
+				<if test="sumFee != null and sumFee != ''">
+					a.sum_fee = #{sumFee}
+				</if>
+			</set>
+			where a.user_id = #{userId}
+	</update>
+	
+	<update id="updateUserFeeInfo" parameterType="map">
+		update tf_f_user a
+		set a.current_fee = a.current_fee + #{chargeFee},
+			a.sum_fee = a.sum_fee + #{chargeFee}
+		where a.user_id = #{userId}
+	</update>
+	
+	<select id="queryUserInfoCommon" resultType="UserInfo" parameterType="UserInfo">
+		select user_id as userId,
+	       muser_id as muserId,
+	       card_id as cardId,
+	       user_name as userName,
+	       serial_number as serialNumber,
+	       address as address,
+	       school as school,
+	       birthday as birthday,
+	       current_fee as currentFee,
+	       sum_fee as sumFee,
+	       last_cost_date as lastCostDate,
+	       card_type as cardType,
+	       card_start_date as cardStartDate,
+	       card_end_date as cardEndDate,
+	       user_type_code as userTypeCode,
+	       create_date as createDate
+	  from tf_f_user a
+	  <where>
+	  	<if test="cardId != null and cardId !=''">
+	  		a.card_id = #{cardId}
+	  	</if>
+	  	<if test="userName != null and userName !=''">
+	  		and a.user_name = #{userName}
+	  	</if>
+	  	<if test="serialNumber != null and serialNumber!=''">
+	  		and a.serial_number = #{serialNumber}
+	  	</if>
+	  		and a.muser_id = #{mUserId}
+	  </where>
+	  limit #{start},#{limit}
+	</select>
+<!--	<select id="testQry" resultType="Trade" parameterType="java.lang.String">-->
+<!--		SELECT a.trade_id,a.subscribe_id,a.trade_type_code FROM tf_b_trade a -->
+<!--		where a.trade_id = #{trade_id}-->
+<!--	</select>-->
+<!--	-->
+<!--	<update id="testUpdate" parameterType="java.lang.String">-->
+<!--		update tf_f_leave a-->
+<!--		set a.user_name = #{name}-->
+<!--		where a.user_id = '10395'-->
+<!--	</update>-->
+<!--	-->
+<!--	<update id="testUpdate2" parameterType="java.lang.String">-->
+<!--		update tf_f_leave a-->
+<!--		set a.user_name = #{name}-->
+<!--		where a.user_id = '10391'-->
+<!--	</update>-->
+<!--	<sql id="userItemColumn">-->
+<!--		<![CDATA[-->
+<!--			a.user_id    userId,-->
+<!--	        a.attr_code  attrCode,-->
+<!--	        a.attr_value attrValue,-->
+<!--	        a.start_date startDate,-->
+<!--	        a.end_date   endDate-->
+<!--		]]>-->
+<!--	</sql>-->
+	
+<!--     这里的id必须和UserMapper接口中的接口方法名相同，不然运行的时候也要报错  -->
+<!--    <select id="getUserItemList" resultType="UserItem" parameterType="java.lang.String"> -->
+<!--        SELECT <include refid="userItemColumn"/> FROM tf_f_user_item a-->
+<!--		where a.user_id = #{userId}-->
+<!--    </select> -->
+    
+<!--    <select id="getUserItemList2" resultMap="UserItemMap" parameterType="java.lang.String">-->
+<!--    	SELECT a.user_id userId,-->
+<!--		       a.open_date devDate,-->
+<!--		       a.eparchy_code eparchyCode,-->
+<!--		       b.user_id userIdItem,-->
+<!--		       b.attr_code attrCode,-->
+<!--		       b.attr_value attrValue,-->
+<!--		       b.start_date startDate,-->
+<!--		       b.end_date endDate-->
+<!--		  FROM tf_f_user a, tf_f_user_item b-->
+<!--		 where a.user_id = b.user_id-->
+<!--		   and a.user_id = #{user_id}-->
+<!--    </select>-->
+    
+<!--    <resultMap type="User" id="userRet">-->
+<!--    	<id property="userId" column="userId"/>-->
+<!--    	<result property="devDate" column="devDate"/>-->
+<!--    	<result property="eparchyCode" column="eparchyCode"/>-->
+<!--    </resultMap>-->
+<!--    -->
+<!--   	<resultMap type="UserItem" id="UserItemMap" extends="bean.userItem">-->
+<!--		<association property="user" resultMap="bean.user"></association>-->
+<!--	</resultMap> -->
+</mapper>

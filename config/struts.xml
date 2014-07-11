@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+<!--	<package name="forAndroid" extends="struts-default" namespace="/forPhone" >-->
+<!--		<action name="uploadSms" class="com.zzc.action.forPhone.UploadSms" method="smsService"></action>-->
+<!--		<action name="getTargetNum" class="com.zzc.action.forPhone.UserParam" method="getSmsTargetNum"></action>-->
+<!--		<action name="isSendForSerNum" class="com.zzc.action.forPhone.UserParam" method="getIsSendSmsForSerialNum"></action>-->
+<!--		<action name="getUserParam" class="com.zzc.action.forPhone.UserParam" method="getParamByTagName"></action>-->
+<!--		<action name="getSynTag" class="com.zzc.action.forPhone.UserParam" method="getSynTag"></action>-->
+<!--		<action name="updateClientId" class="com.zzc.action.forPhone.UserParam" method="updateClientId"></action>-->
+<!--		<action name="createUser" class="com.zzc.action.forPhone.UserParam" method="createNewUser"></action>-->
+<!--	</package>-->
+
+	<package name="forWeb" extends="json-default" namespace="/web">
+<!--		拦截器-->
+		<interceptors>
+<!--		声明拦截器-->
+			<interceptor name="myInterceptor" class="loginInterceptor"></interceptor>
+			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>  
+<!--			拦截器栈-->
+			<interceptor-stack name="myInterceptorStack">
+<!--			json插件-->
+				<interceptor-ref name="json"></interceptor-ref>
+<!-- 			默认的也要加上-->
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+<!--			自己的拦截器-->
+				<interceptor-ref name="myInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+<!--		最后别忘了修改默认拦截器为自己的拦截器-->
+		<default-interceptor-ref name="myInterceptorStack"></default-interceptor-ref>
+		
+		<global-results>
+			<result name="global_index" type="redirectAction">index</result>
+			<result name="global_error_page" type="redirect">/global_error_page.jsp</result>
+		</global-results>
+		
+<!--		主页面-->
+		<action name="index" class="mainPageAction" method="indexPage">
+			<result name="success">/MainPage.jsp</result>
+		</action>
+		<action name="leftTreeMenu" class="mainPageAction" method="leftTreeMenu"></action>
+		<action name="isLogin" class="mainPageAction" method="isLogin"></action>
+<!--		<action name="login" class="mainPageAction" method="login"></action>-->
+		<action name="logout" class="loginAction" method="logout">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+<!--		测试-->
+		<action name="test1" class="testAction" method="test1">
+			<result name="success">/test.jsp</result>
+		</action>
+		
+		<action name="testLogin" class="testAction" method="testLogin">
+		</action>
+		
+<!--		会员管理-->
+		<action name="createVip" class="createVipAction" method="createVipIndex">
+			<result name="success">/page/app/vipMrg/createVip.jsp</result>
+		</action>
+		
+<!--		采用通配的方式  类名(spring中的action名字)_方法（action中的方法） 目前此方法作为ajax方法的通用调用方法 -->
+		<action name="*_*" method="{2}" class="{1}">
+			<result name="jsonResult" type="json">
+				<param name="root">CON_JSON_RESULT</param>
+			</result>
+		</action>
+		
+<!--		采用通配的方式  类名(spring中的action名字) 目前此方法作为ajax方法的通用调用方法 -->
+		<action name="*" class="{1}">
+			<result name="jsonResult" type="json">
+				<param name="root">CON_JSON_RESULT</param>
+			</result>
+		</action>
+	</package>
+</struts>    

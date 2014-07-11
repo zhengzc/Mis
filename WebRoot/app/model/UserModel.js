@@ -1,0 +1,20 @@
+Ext.define("WebApp.model.UserModel",{
+	extend:"Ext.data.Model",
+	fields:[
+		{name:"userId",type:"string"},
+		{name:"muserId",type:"string"},
+		{name:"cardId",type:"string"},
+		{name:"userName",type:"string"},
+		{name:"serialNumber",type:"string"},
+		{name:"address",type:"string"},
+		{name:"school",type:"string"},
+		{name:"birthday",type:"string"},
+		{name:"currentFee",type:"string"},
+		{name:"sumFee",type:"string"},
+		{name:"lastCostDate",type:"string"},
+		{name:"cardType",type:"string"},
+		{name:"cardStartDate",type:"string"},
+		{name:"cardEndDate",type:"string"},
+		{name:"createDate",type:"string"}
+	]
+})

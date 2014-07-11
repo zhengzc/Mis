@@ -1,0 +1,17 @@
+Ext.define("WebApp.view.testView.Test_1",{
+	extend:"Ext.form.Panel",
+	alias:"widget.test_1",
+	layout:"anchor",
+	initComponent:function(){
+		this.callParent(arguments);
+	},
+	items:[{
+		xtype:"textfield",
+		name:"user_name",
+		fieldLabel:"姓名"
+	}],
+	buttons:[{
+		action:"test_1_submit",
+		text:"提交"
+	}]
+})

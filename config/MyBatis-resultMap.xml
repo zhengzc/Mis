@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="bean">
+<!--	<resultMap type="Trade" id="trade">-->
+<!--    	<id property="trade_id" column="trade_id"/>-->
+<!--    	<result property="subscribe_id" column="subscribe_id"/>-->
+<!--    	<result property="trade_type_code" column="trade_type_code"/>-->
+<!--    	<result property="serial_number" column="serial_number"/>-->
+<!--    	<result property="subscribe_state" column="subscribe_state"/>-->
+<!--    	<result property="next_deal_tag" column="next_deal_tag"/>-->
+<!--    	<result property="accept_date" column="accept_date"/>-->
+<!--    	<result property="cancel_date" column="cancel_date"/>-->
+<!--    	<result property="trade_staff_id" column="trade_staff_id"/>-->
+<!--    	<result property="trade_depart_id" column="trade_depart_id"/>-->
+<!--    	<result property="trade_city_code" column="trade_city_code"/>-->
+<!--    	<result property="eparchy_code" column="eparchy_code"/>-->
+<!--    	<result property="oper_fee" column="oper_fee"/>-->
+<!--    	<result property="foregift" column="foregift"/>-->
+<!--    	<result property="advance_pay" column="advance_pay"/>-->
+<!--    </resultMap>-->
+<!--    -->
+<!--    <resultMap type="TradeRel" id="tradeRel">-->
+<!--    	<id property="trade_id_a" column="trade_id_a"/>-->
+<!--    	<id property="trade_id_b" column="trade_id_b"/>-->
+<!--    	<id property="relation_type_code" column="relation_type_code"/>-->
+<!--    	<result property="start_date" column="start_date"/>-->
+<!--    	<result property="state" column="state"/>-->
+<!--    </resultMap>-->
+<!--    -->
+<!--    <resultMap type="BatFix0xLog" id="batFix0xLog">-->
+<!--    	<id property="trade_id" column="trade_id"/>-->
+<!--    	<result property="is_success" column="is_success"/>-->
+<!--    	<result property="fix_result" column="fix_result"/>-->
+<!--    	<result property="fix_date" column="fix_date"/>-->
+<!--    </resultMap>-->
+<!--    -->
+<!--    <resultMap type="TradefeeSub" id="tradefeeSub">-->
+<!--	    <id property="trade_id" column="trade_id"/>-->
+<!--		<result property="accept_month" column="accept_month"/>-->
+<!--		<result property="pay_money_code" column="pay_money_code"/>-->
+<!--		<result property="money" column="money"/>-->
+<!--		<result property="pay_id" column="pay_id"/>-->
+<!--		<result property="pay_date" column="pay_date"/>-->
+<!--		<result property="fee_staff_id" column="fee_staff_id"/>-->
+<!--		<result property="fee_depart_id" column="fee_depart_id"/>-->
+<!--    </resultMap>-->
+<!--    -->
+<!--    <resultMap type="TradefeePaymoney" id="tradefeePaymoney">-->
+<!--	    <id property="trade_id" column="trade_id"/>-->
+<!--		<result property="accept_month" column="accept_month"/>-->
+<!--		<result property="fee_mode" column="fee_mode"/>-->
+<!--		<result property="fee_type_code" column="fee_type_code"/>-->
+<!--		<result property="oldfee" column="oldfee"/>-->
+<!--		<result property="fee" column="fee"/>-->
+<!--		<result property="charge_id" column="charge_id"/>-->
+<!--		<result property="derate_id" column="derate_id"/>-->
+<!--		<result property="derate_remark" column="derate_remark"/>-->
+<!--		<result property="start_date" column="start_date"/>-->
+<!--		<result property="months" column="months"/>-->
+<!--		<result property="charge_source_code" column="charge_source_code"/>-->
+<!--		<result property="dpst_rtn_date" column="dpst_rtn_date"/>-->
+<!--		<result property="limit_fee" column="limit_fee"/>-->
+<!--		<result property="deposit_prior_rule_id" column="deposit_prior_rule_id"/>-->
+<!--		<result property="rule_id" column="rule_id"/>-->
+<!--		<result property="appr_staff_id" column="appr_staff_id"/>-->
+<!--		<result property="calculate_id" column="calculate_id"/>-->
+<!--		<result property="calculate_date" column="calculate_date"/>-->
+<!--		<result property="staff_id" column="staff_id"/>-->
+<!--		<result property="calculate_tag" column="calculate_tag"/>-->
+<!--		<result property="pay_tag" column="pay_tag"/>-->
+<!--		<result property="pay_id" column="pay_id"/>-->
+<!--		<result property="pay_date" column="pay_date"/>-->
+<!--		<result property="fee_staff_id" column="fee_staff_id"/>-->
+<!--		<result property="fee_depart_id" column="fee_depart_id"/>-->
+<!--    </resultMap>-->
+<!--    -->
+<!--    <resultMap type="TradeMphoneCancleYY" id="tradeMphoneCancleYY">-->
+<!--    	<id property="trade_id" column="trade_id"/>-->
+<!--		<result property="trade_eparchy_code" column="trade_eparchy_code"/>-->
+<!--		<result property="serial_number" column="serial_number"/>-->
+<!--		<result property="issuc" column="issuc"/>-->
+<!--		<result property="remark" column="remark"/>-->
+<!--		<result property="deal_time" column="deal_time"/>-->
+<!--    </resultMap>-->
+    
+<!--   	<resultMap type="UserItem" id="userItem">-->
+<!--		<id property="userId" column="userId"/>-->
+<!--		<id property="attrCode" column="attrCode"/>-->
+<!--		<result property="attrValue" column="attrValue"/>-->
+<!--		<result property="startDate" column="startDate"/>-->
+<!--		<result property="endDate" column="endDate"/>-->
+<!--	</resultMap> -->
+</mapper>
